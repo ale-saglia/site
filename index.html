@@ -273,6 +273,16 @@
         border-radius: 2px;
       }
     </style>
+    <script>
+      // Anti-bot protection: decode email addresses from base64
+      document.addEventListener('DOMContentLoaded', () => {
+        document.querySelectorAll('.email-link').forEach(link => {
+          const encodedEmail = link.getAttribute('data-email');
+          const email = atob(encodedEmail);
+          link.href = 'mailto:' + email;
+        });
+      });
+    </script>
   </head>
   <body>
     <div class="wrap">
@@ -317,7 +327,7 @@
                 <span class="link-desc">Professional background and work history.</span>
               </li>
               <li>
-                <a href="mailto:hello@ale-saglia.com">hello@ale-saglia.com</a>
+                <a href="#" class="email-link" data-email="aGVsbG9AYWxlLXNhZ2xpYS5jb20=">hello@ale-saglia.com</a>
                 <span class="link-desc">For anything else.</span>
               </li>
             </ul>
