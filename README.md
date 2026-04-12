@@ -22,4 +22,4 @@ Deployed via GitHub Pages from the `main` branch. The custom domain `ale-saglia.
 
 ## Implementation notes
 
-**Profile image**: The profile photo is sourced dynamically from `https://github.com/ale-saglia.png` - the publicly available avatar image from this GitHub profile. This is a conscious design choice: the avatar stays in sync with any GitHub profile updates automatically, without requiring manual synchronization. The trade-off is an external dependency on GitHub's avatar service.
+**Profile image**: The profile photo is stored as `avatar.jpg` in the repo root (a copy of the GitHub profile avatar, downloaded at commit time). This removes the runtime dependency on GitHub's avatar URL, which could change or break silently. The `og:image` and `twitter:image` meta tags also point to `https://ale-saglia.com/avatar.jpg`. To update the photo, replace `avatar.jpg` with a new file and commit.
