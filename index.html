@@ -42,7 +42,7 @@
         "@type": "Place",
         "name": "Piedmont, Italy"
       },
-      "email": "hello@ale-saglia.com",
+
       "description": "Digital governance, public administration, and data systems",
       "knowsAbout": ["Digital Governance", "Public Administration", "Data Systems", "Open Source", "Infrastructure"]
     }
@@ -277,9 +277,9 @@
       // Anti-bot protection: decode email addresses from base64
       document.addEventListener('DOMContentLoaded', () => {
         document.querySelectorAll('.email-link').forEach(link => {
-          const encodedEmail = link.getAttribute('data-email');
-          const email = atob(encodedEmail);
+          const email = atob(link.getAttribute('data-email'));
           link.href = 'mailto:' + email;
+          link.textContent = email;
         });
       });
     </script>
@@ -327,7 +327,7 @@
                 <span class="link-desc">Professional background and work history.</span>
               </li>
               <li>
-                <a href="#" class="email-link" data-email="aGVsbG9AYWxlLXNhZ2xpYS5jb20=">hello@ale-saglia.com</a>
+                <a href="#" class="email-link" data-email="aGVsbG9AYWxlLXNhZ2xpYS5jb20=">contact</a>
                 <span class="link-desc">For anything else.</span>
               </li>
             </ul>
